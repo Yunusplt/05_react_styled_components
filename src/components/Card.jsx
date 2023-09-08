@@ -1,13 +1,14 @@
 import React from "react";
 import data from "../data";
 import IMGStyle from "./styles/ImageStyle";
+import CardStyle from "./styles/CardStyle";
 
-const CardStyle = () => {
+
+const Card = () => {
   return (
     <div>
       {data.map((item, index) => (
-        <div>
-          <CardStyle>
+          <CardStyle key={index} reverse={index%2===1 && "row-reverse"} >
             <section>
               <h2>{item.title}</h2>
               <p>{item.body}</p>
@@ -15,10 +16,9 @@ const CardStyle = () => {
 
             <IMGStyle src={`./images/${item.image}`} alt="" />
           </CardStyle>
-        </div>
       ))}
     </div>
   );
 };
 
-export default CardStyle;
+export default Card;
